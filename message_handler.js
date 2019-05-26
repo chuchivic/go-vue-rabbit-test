@@ -4,7 +4,7 @@ module.exports = messageHandler;
 
 function messageHandler(io){
   rabbitMQHandler('amqp://guest:guest@localhost:5672', function(err, options){
-    
+
     if(err){
       throw err;  
     }
@@ -19,7 +19,7 @@ function messageHandler(io){
     function websocketConnect(socket){
 
       console.log('New connection')
-      
+
       socket.on('disconnect', socketDisconnect);
 
       socket.on('statechange', (message) => {
@@ -32,5 +32,5 @@ function messageHandler(io){
         console.log('Disconnect ', e);
       }
     }
-   });
+  });
 }

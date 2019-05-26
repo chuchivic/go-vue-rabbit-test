@@ -27,7 +27,6 @@ amqp.connect(address, function amqpConnectCallback(err, conn){
       var id = Math.floor(Math.random() * 6) + 1;
 
       ch.publish("messages", '', new Buffer(JSON.stringify({ id, newstate})))
-      console.log(JSON.stringify({id,newstate}))
       console.log("publish id : " + id + "state " + newstate);
       ch.close();
     });
